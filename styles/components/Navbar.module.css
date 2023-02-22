@@ -1,0 +1,102 @@
+.container {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	z-index: 5;
+}
+.wrapper {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+}
+.left {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.imageContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: white;
+}
+.banner {
+	color: gray;
+	margin: 0 5px;
+	padding: 0 5px;
+	border-right: 0.3px solid gray;
+}
+.location {
+	display: flex;
+	align-items: center;
+	border-radius: 20px;
+	color: #e70;
+	font-size: 18px;
+	padding: 5px 20px;
+	background-color: #fff8e9c9;
+	font-weight: 100;
+}
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: gray;
+	margin-left: 5px;
+}
+.store {
+	display: flex;
+	align-items: center;
+}
+.deals {
+	margin-left: 40px;
+}
+.right {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: gray;
+	font-size: 20px;
+}
+.login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+.cart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 10px;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+	.center {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	.location {
+		display: none;
+	}
+	.banner {
+		font-size: 15px;
+		margin: 0px 5px 0px 0px;
+		padding: 0px 5px 0px 0px;
+	}
+	.right {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.banner {
+		font-size: 10px;
+	}
+}

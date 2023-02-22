@@ -1,0 +1,164 @@
+.container {
+}
+.wrapper {
+}
+.top {
+	display: flex;
+	padding: 10px;
+	justify-content: space-between;
+}
+.continue {
+	padding: 10px 20px;
+	color: #e70;
+	border: 1px solid #e70;
+	background-color: white;
+	cursor: pointer;
+}
+.checkout {
+	color: white;
+	padding: 10px 20px;
+	background-color: #e70;
+	border: none;
+	cursor: pointer;
+	letter-spacing: 2px;
+}
+.bottom {
+	display: flex;
+	padding: 10px;
+	justify-content: space-between;
+}
+
+.bLeft {
+	flex: 2;
+}
+.product {
+	display: flex;
+	margin: 10px 5px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 6%);
+}
+.left {
+	flex: 1;
+	border-radius: 5px;
+}
+.imageContainer {
+	width: 150px;
+	height: 150px;
+	border-radius: 5px;
+	position: relative;
+}
+
+.center {
+	flex: 2;
+	display: flex;
+	margin: 0 10px;
+	color: gray;
+	justify-content: center;
+	align-items: center;
+}
+.details p {
+	color: #616161;
+	margin-top: 5px;
+	font-family: sans-serif;
+	line-height: 23px;
+	font-size: 22px;
+}
+.right {
+	flex: 2;
+	margin: 0 10px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.amountContainer h4 {
+	color: orange;
+	font-weight: 100;
+	margin: 5px 0;
+}
+.amountContainer h5 {
+	color: orange;
+	font-weight: 100;
+	margin: 5px 0;
+}
+.bRight {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	justify-content: center;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px 5px;
+	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+	max-height: 270px;
+	position: sticky;
+	right: 0;
+	top: 100px;
+}
+.bRight h2 {
+	text-align: center;
+	font-weight: 100;
+	color: #e70;
+	margin-bottom: 10px;
+}
+.priceDetails {
+	display: flex;
+	flex-direction: column;
+	letter-spacing: 1px;
+	color: gray;
+	font-weight: 100;
+	margin: 10px auto;
+	align-items: space-batween;
+}
+.priceDetails h4 {
+	margin: 5px 0;
+}
+
+@media only screen and (max-width: 850px) {
+	.bottom {
+		flex-direction: column;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.continue {
+		font-size: 15px;
+		padding: 5px 10px;
+	}
+	.checkout {
+		font-size: 15px;
+		padding: 5px 10px;
+	}
+	.left {
+		display: flex;
+		justify-content: center;
+	}
+	.imageContainer {
+		width: 100%;
+		height: 35vw;
+	}
+	.product {
+		flex-direction: column;
+		margin-bottom: 30px;
+	}
+
+	.center {
+		justify-content: flex-start;
+	}
+	.details p {
+		font-size: 15px;
+	}
+	.right {
+		justify-content: flex-start;
+	}
+	.amountContainer {
+		flex: 1;
+		display: flex;
+		justify-content: space-between;
+	}
+	.amountContainer h5 {
+		margin: 5px 10px;
+		color: orange;
+	}
+}

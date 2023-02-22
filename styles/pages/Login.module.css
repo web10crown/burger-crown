@@ -1,0 +1,46 @@
+.container {
+	display: flex;
+	justify-content: center;
+	height: 90vh;
+	align-items: center;
+}
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50vw;
+	height: 70%;
+	padding: 30px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+}
+.wrapper form {
+	margin: 20px 0;
+	display: flex;
+	flex-direction: column;
+}
+.wrapper input {
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid gray;
+	outline: none;
+}
+.btn {
+	color: white;
+	background-color: orange;
+	padding: 5px 10px;
+	border: none;
+	margin: 20px 0;
+	cursor: pointer;
+}
+@media only screen and (max-width: 850px) {
+	.wrapper {
+		width: 80vw;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.wrapper {
+		width: 90vw;
+	}
+}

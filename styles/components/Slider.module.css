@@ -1,0 +1,24 @@
+.container {
+	overflow: hidden;
+}
+.wrapper {
+	display: flex;
+	width: 500vw;
+}
+.slide {
+	display: flex;
+	width: 100vw;
+	height: 20vw;
+	position: relative;
+}
+
+@media only screen and (max-width: 850px) {
+	.slide {
+		height: 40vw;
+	}
+}
+@media only screen and (max-width: 550px) {
+	.slide {
+		height: 45vw;
+	}
+}

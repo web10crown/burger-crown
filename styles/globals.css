@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Flame-Regular";
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.7);
+}
+@font-face {
+  font-family: "Flame-Regular";
+  src: url("/fonts/Flame-Regular.woff");
+}
+body {
+  background-color: #f8f6f3;
+}
