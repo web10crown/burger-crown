@@ -58,7 +58,7 @@ export default Products;
 
 export const getServerSideProps = async () => {
 	try {
-		const res = await axios.get("https://burger-crown.vercel.app/api/products/");
+		const res = await axios.get(`${process.env.URL}/api/products/`);
 		return {
 			props: {
 				products: res.data,

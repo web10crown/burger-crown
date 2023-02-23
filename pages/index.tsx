@@ -9,7 +9,7 @@ import axios from "axios";
 export default function Home() {
   useEffect(() => {
     const dbConnect = async () => {
-      await axios.get("https://burger-crown.vercel.app/api/products");
+      await axios.get(`http://localhost:3000/api/products`);
     };
     dbConnect();
   }, []);

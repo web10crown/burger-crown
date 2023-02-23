@@ -1,7 +1,19 @@
 import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Router from "next/router";
+import { useState } from "react";
+import Loading from "./Loading";
+
 const Layout = ({ children }) => {
+	const [loading, setLoading] = useState(false);
+
+	Router.events.on("routeChangeStart", (url) => {
+		setLoading(true);
+	});
+	Router.events.on("routeChangeComplete", (url) => {
+		setLoading(false);
+	});
 	return (
 		<>
 			<Head>
@@ -22,7 +34,7 @@ const Layout = ({ children }) => {
 				/>
 			</Head>
 			<Navbar />
-			{children}
+			{loading ? <Loading /> : children}
 			<Footer />
 		</>
 	);

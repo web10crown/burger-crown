@@ -33,6 +33,7 @@ const Cart = () => {
 												src={p.img}
 												alt="burger"
 												fill
+												sizes="auto"
 												style={{
 													borderRadius: "5px",
 												}}

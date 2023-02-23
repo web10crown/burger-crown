@@ -27,11 +27,8 @@ const OurMenu = () => {
 				</div>
 				<div className={styles.wrapper} id="wrapper">
 					{menuData.map((m, i) => (
-						<Link
-							href="/products"
-							style={{ textDecoration: "none", color: "black" }}
-						>
-							<div className={styles.menuCard} key={i}>
+						<div className={styles.menuCard} key={i}>
+							<Link href="/products">
 								<div className={styles.menuItem}>
 									<Image
 										src={`/images/ourMenu/${m.img}`}
@@ -40,16 +37,16 @@ const OurMenu = () => {
 										sizes="auto"
 									/>
 								</div>
-								<h4
-									style={{
-										textAlign: "center",
-										fontWeight: "200",
-									}}
-								>
-									{m.desc}
-								</h4>
-							</div>
-						</Link>
+							</Link>
+							<h4
+								style={{
+									textAlign: "center",
+									fontWeight: "200",
+								}}
+							>
+								{m.desc}
+							</h4>
+						</div>
 					))}
 				</div>
 				<div

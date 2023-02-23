@@ -32,6 +32,7 @@ const Deals = () => {
 									src="/images/deals/deal1.jpg"
 									alt=""
 									fill
+									priority={true}
 									sizes="auto"
 								/>
 							</div>
@@ -42,6 +43,7 @@ const Deals = () => {
 									src="/images/deals/deal2.jpg"
 									alt=""
 									fill
+									priority={true}
 									sizes="auto"
 								/>
 							</div>
@@ -52,6 +54,7 @@ const Deals = () => {
 									src="/images/deals/deal3.jpg"
 									alt=""
 									fill
+									priority={true}
 									sizes="auto"
 								/>
 							</div>
@@ -62,6 +65,7 @@ const Deals = () => {
 									src="/images/deals/deal4.jpg"
 									alt=""
 									fill
+									priority={true}
 									sizes="auto"
 								/>
 							</div>

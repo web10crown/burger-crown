@@ -23,6 +23,7 @@ const Product = ({ product }) => {
 									src={product.img}
 									alt=""
 									fill
+									sizes="auto"
 									priority={true}
 									style={{ borderRadius: "10px" }}
 								/>
@@ -69,9 +70,7 @@ const Product = ({ product }) => {
 export default Product;
 
 export const getServerSideProps = async ({ params }) => {
-	const res = await axios.get(
-		`https://burger-crown.vercel.app/api/products/${params.id}`
-	);
+	const res = await axios.get(`${process.env.URL}/api/products/${params.id}`);
 	return {
 		props: {
 			product: res.data,

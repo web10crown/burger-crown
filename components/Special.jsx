@@ -24,15 +24,13 @@ const Special = () => {
 								Our tribute to clasic American taste.Bk veg...{" "}
 							</p>
 						</div>
-						<Link
-							href="/products"
-							style={{ textDecoration: "none" }}
-						>
-							<div className={styles.price}>
-								<p>$ 20</p>
-								<a>ADD +</a>
-							</div>
-						</Link>
+
+						<div className={styles.price}>
+							<p>$ 20</p>
+							<Link href="/products">
+								<button className={styles.add}>ADD +</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 
@@ -53,15 +51,13 @@ const Special = () => {
 								Our tribute to clasic American taste.Bk veg...{" "}
 							</p>
 						</div>
-						<Link
-							href="/products"
-							style={{ textDecoration: "none" }}
-						>
-							<div className={styles.price}>
-								<p>$ 15</p>
-								<a>ADD +</a>
-							</div>
-						</Link>
+
+						<div className={styles.price}>
+							<p>$ 15</p>
+							<Link href="/products">
+								<button className={styles.add}>ADD +</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 
@@ -84,15 +80,13 @@ const Special = () => {
 								Our tribute to clasic American taste.Bk veg...
 							</p>
 						</div>
-						<Link
-							href="/products"
-							style={{ textDecoration: "none" }}
-						>
-							<div className={styles.price}>
-								<p>$ 100</p>
-								<a>ADD +</a>
-							</div>
-						</Link>
+
+						<div className={styles.price}>
+							<p>$ 100</p>
+							<Link href="/products">
+								<button className={styles.add}>ADD +</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 
@@ -115,15 +109,13 @@ const Special = () => {
 								Our tribute to clasic American taste.Bk veg...
 							</p>
 						</div>
-						<Link
-							href="/products"
-							style={{ textDecoration: "none" }}
-						>
-							<div className={styles.price}>
-								<p>$ 110</p>
-								<a>ADD +</a>
-							</div>
-						</Link>
+
+						<div className={styles.price}>
+							<p>$ 110</p>
+							<Link href="/products">
+								<button className={styles.add}>ADD +</button>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -139,7 +131,7 @@ const Special = () => {
 							src="/images/products/bkwall.jpg"
 							alt="BKwall"
 							fill
-							loading="lazy"
+							priority={true}
 							sizes="auto"
 							style={{ borderRadius: "10px" }}
 						/>

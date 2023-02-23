@@ -15,7 +15,7 @@ const Login = () => {
 			pass,
 		};
 		try {
-			await axios.post("https://burger-crown.vercel.app/api/admin", data);
+			await axios.post("http://localhost:3000/api/admin", data);
 			router.push("/admin");
 			alert("Login success");
 		} catch (err) {
