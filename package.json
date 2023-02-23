@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "gzip build/static/js/*.js && gzip build/static/css/*.css",
+    "postbuild": "gzip build/js/*.js && gzip build/css/*.css",
     "start": "next start",
     "lint": "next lint"
   },
