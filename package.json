@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "tar -cvzf your_react_app_name.tar.gz /",
+    "postbuild": "gzip build/static/js/*.js && gzip build/static/css/*.css",
     "start": "next start",
     "lint": "next lint"
   },
