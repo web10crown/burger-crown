@@ -57,7 +57,7 @@ const Footer = () => {
 							fontSize: "40px",
 						}}
 					/>
-					<a href="" style={{ color: "white" }}>
+					<a href="https://www.linkedin.com/in/neeraj-rana-387a53259" style={{ color: "white" }}>
 						<LinkedInIcon
 							style={{
 								cursor: "pointer",
