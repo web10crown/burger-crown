@@ -25,7 +25,7 @@ const Admin = () => {
 				img: cloudRes.data.url,
 			};
 			const res = await axios.post(
-				"http://localhost:3000/api/products",
+				"https://burger-crown.vercel.app/api/products",
 				product
 			);
 			alert("data aded successfully");
