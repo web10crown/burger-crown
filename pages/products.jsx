@@ -1,87 +1,70 @@
 import styles from "@/styles/pages/Products.module.css";
-import axios from "axios";
+import OurMenu from "../components/OurMenu";
 import Image from "next/image";
 import Link from "next/link";
-import { publicRequest } from "../request";
-
-export default function Products({ data }) {
+import axios from "axios";
+const Products = ({ products }) => {
 	return (
-		<div className={styles.container}>
-			<h1>{data[0] ? "PRODUCTS " : "Not Availiable"}</h1>
-			<div className={styles.wrapper}>
-				<div className={styles.filters}>
-					<h2>Average Customer Review</h2>
-					<p>filter 1</p>
-				</div>
-				<div className={styles.cardContainer}>
-					{data
-						.slice()
-						.reverse()
-						.map((p) => (
-							<div className={styles.card} key={p._id}>
-								<Link
-									href={`/product/${p._id}`}
-									style={{
-										color: "#131921",
-										textDecoration: "none",
-									}}
-								>
-									<>
-										<div className={styles.imgContainer}>
-											<Image
-												src={p.img}
-												alt={p.name}
-												fill
-												style={{ objectFit: "contain" }}
-												sizes="auto"
-												priority={true}
-											/>
+		<>
+			<div className={styles.container}>
+				<div className={styles.wrapper}>
+					<div className={styles.top}>
+						<OurMenu />
+					</div>
+					<div className={styles.bottom}>
+						<div className={styles.cardContainer}>
+							{products.map((p) => (
+								<div className={styles.card} key={p._id}>
+									<div className={styles.imageContainer}>
+										<Image
+											src={`${p.img}`}
+											alt=""
+											fill
+											sizes="auto"
+											priority={true}
+											style={{
+												borderRadius: "5px 5px 0 0",
+											}}
+										/>
+									</div>
+									<div className={styles.details}>
+										<h2>{p.name}</h2>
+										<p>{p.desc.slice(0, 50)}...</p>
+										<div className={styles.amountContainer}>
+											<h3>$ {p.price}</h3>
+											<Link
+												href={`/product/${p._id}`}
+												style={{
+													textDecoration: "none",
+													color: "orange",
+												}}
+											>
+												<h4 className={styles.button}>
+													ADD +
+												</h4>
+											</Link>
 										</div>
-
-										<div className={styles.info}>
-											<button>{p.name}</button>
-											<h4>{p.price} ₹</h4>
-											<p>{p.desc.slice(0, 70)}...</p>
-										</div>
-									</>
-								</Link>
-							</div>
-						))}
+									</div>
+								</div>
+							))}
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
-}
+};
+export default Products;
 
-export const getServerSideProps = async (params) => {
-	const cat = params.query.cat;
-	const find = params.query.find;
-
+export const getServerSideProps = async () => {
 	try {
-		if (cat) {
-			const res = await axios.get(
-				`${publicRequest}/api/products?cat=${cat}`
-			);
-			return {
-				props: { data: res.data },
-			};
-		} else if (find) {
-			const res = await axios.get(
-				`${publicRequest}/api/products?find=${find}`
-			);
-			return {
-				props: { data: res.data },
-			};
-		} else {
-			const res = await axios.get(`${publicRequest}/api/products`);
-			return {
-				props: { data: res.data },
-			};
-		}
+		const res = await axios.get(`https://burger-crown.vercel.app/api/products/`);
+		return {
+			props: {
+				products: res.data,
+			},
+		};
 	} catch (err) {
 		console.log(err);
-		return {
-			props: { data: [] },
-		};
 	}
 };

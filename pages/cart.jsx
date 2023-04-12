@@ -1,95 +1,88 @@
 import styles from "@/styles/pages/Cart.module.css";
+import Link from "next/link";
 import Image from "next/image";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "@/redux/cartSlice";
-import { loadStripe } from "@stripe/stripe-js";
+import { removeProduct } from "../redux/cartSlice";
 
-const stripePromise = loadStripe(process.env.STRIPE_PUBLISHABLE_KEY);
 const Cart = () => {
 	const dispatch = useDispatch();
 	const cart = useSelector((state) => state.cart);
-	const removeProduct = (_id) => {
-		dispatch(remove({ _id }));
+	const handleDelete = (id) => {
+		dispatch(removeProduct({ id }));
 	};
-
 	return (
 		<>
 			<div className={styles.container}>
 				<div className={styles.wrapper}>
-					<div className={styles.left}>
-						<h2>Shoping Cart</h2>
-						{cart.products
-							.slice()
-							.reverse()
-							.map((p) => (
-								<div className={styles.product}>
-									<div className={styles.imgContainer}>
-										<div className={styles.img}>
+					<div className={styles.top}>
+						<Link href="/products">
+							<button className={styles.continue}>
+								CONTINUE SHOPING
+							</button>
+						</Link>
+						<button className={styles.checkout}>CHECKOUT</button>
+					</div>
+					<div className={styles.bottom}>
+						<div className={styles.bLeft}>
+							{cart.products.map((p) => (
+								<div className={styles.product} key={p._id}>
+									<div className={styles.left}>
+										<div className={styles.imageContainer}>
 											<Image
 												src={p.img}
-												alt="product"
+												alt="burger"
 												fill
 												sizes="auto"
-												priority={true}
+												style={{
+													borderRadius: "5px",
+												}}
 											/>
 										</div>
 									</div>
-									<div className={styles.details}>
-										<h3>{p.desc.slice(0, 110)}...</h3>
-										<p style={{ color: "green" }}>
-											In Stock
-										</p>
-										<p>Eligible for FREE Shipping</p>
-										<p>
-											<b>Price :</b>₹ {p.price}
-										</p>
-										<div className={styles.amount}>
-											<h5>QTY</h5>
-											<input
-												type="number"
-												min="1"
-												defaultValue={p.quantity}
-											/>
-											<button
-												onClick={() =>
-													removeProduct(p._id)
-												}
-											>
-												Delete
-											</button>
-											<button>Save</button>
-											<button>See more</button>
-											<button>Share</button>
+
+									<div className={styles.center}>
+										<div className={styles.details}>
+											<h3>{p.name.slice(0, 20)}...</h3>
+											<p>{p.desc.slice(0, 50)}...</p>
 										</div>
 									</div>
-									<div className={styles.amountContainer}>
-										<h3>₹ {p.price * p.quantity}</h3>
+									<div className={styles.right}>
+										<div className={styles.amountContainer}>
+											<h4>PRICE : $ {p.price}</h4>
+											<h5>QUANTITY : {p.quantity}</h5>
+											<div>
+												<DeleteIcon
+													style={{
+														color: "red",
+														width: "100%",
+														margin: "auto",
+														cursor: "pointer",
+													}}
+													id={p._id}
+													onClick={(e) =>
+														handleDelete(p._id)
+													}
+												/>
+											</div>
+										</div>
 									</div>
 								</div>
 							))}
-					</div>
-					<div className={styles.right}>
-						<div className={styles.paymentContainer}>
-							<h3>
-								Subtotal ({cart.quantity} item) : ₹{cart.amount}
-							</h3>
-							<p>This order contains a gift</p>
-
-							<form
-								style={{
-									display: "flex",
-									flexDirection: "column",
-								}}
-								action={`/api/checkoutSession?total=${
-									cart.amount * 100
-								}`}
-								method="POST"
-							>
-								<button type="submit" role="link">
-									Proceed to Buy
-								</button>
-							</form>
-							<h4>EMI Available</h4>
+						</div>
+						<div className={styles.bRight}>
+							<h2>PAYMENT DETAILS</h2>
+							<div className={styles.priceDetails}>
+								<h4>Total Price : $ {cart.amount}</h4>
+								<h4>Delivery Charges : $ 1</h4>
+								<h4>Delivery Discount : $ 1 </h4>
+								<h4 style={{ color: "#636363" }}>
+									Total Payable : $ {cart.amount}
+								</h4>
+							</div>
+							<button className={styles.checkout}>
+								CHECKOUT
+							</button>
 						</div>
 					</div>
 				</div>
