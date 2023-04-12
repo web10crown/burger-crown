@@ -1,15 +1,17 @@
 import styles from "@/styles/pages/Admin.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { publicRequest } from "../request";
 const Admin = () => {
 	const [name, setName] = useState("");
+	const [brand, setBrand] = useState("");
 	const [desc, setDesc] = useState("");
 	const [price, setPrice] = useState(1);
 	const [file, setFile] = useState("");
+	const [cat, setCat] = useState("");
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
-
 		const data = new FormData();
 		data.append("file", file);
 		data.append("upload_preset", "uploads");
@@ -20,12 +22,14 @@ const Admin = () => {
 			);
 			const product = {
 				name,
+				brand,
 				desc,
+				cat,
 				price,
 				img: cloudRes.data.url,
 			};
 			const res = await axios.post(
-				"https://burger-crown.vercel.app/api/products",
+				`${publicRequest}/api/products`,
 				product
 			);
 			alert("data aded successfully");
@@ -34,53 +38,48 @@ const Admin = () => {
 			console.log(err);
 		}
 	};
+
 	return (
 		<>
 			<div className={styles.container}>
 				<div className={styles.wrapper}>
-					<h2>Enter Product Details </h2>
 					<form onSubmit={submitHandler}>
+						<h2>Enter Details </h2>
 						<input
 							type="text"
-							placeholder="Enter Name"
+							placeholder="Enter name"
 							onChange={(e) => setName(e.target.value)}
 						/>
 						<input
 							type="text"
-							placeholder="Enter desc"
+							placeholder="Enter brand"
+							onChange={(e) => setBrand(e.target.value)}
+						/>
+						<input
+							type="text"
+							placeholder="Enter description "
 							onChange={(e) => setDesc(e.target.value)}
 						/>
 						<input
+							type="text"
+							placeholder="Enter category"
+							onChange={(e) => setCat(e.target.value)}
+						/>
+						<input
 							type="number"
-							placeholder="Enter price "
+							min="1"
+							placeholder="Enter price"
 							onChange={(e) => setPrice(e.target.value)}
 						/>
 						<input
 							type="file"
 							onChange={(e) => setFile(e.target.files[0])}
 						/>
-						<button className={styles.btn}>SUBMIT</button>
+						<button>SUBMIT</button>
 					</form>
 				</div>
 			</div>
 		</>
 	);
-};
-export const getServerSideProps = async (ctx) => {
-	const myCookie = ctx.req?.cookies || "";
-
-	if (myCookie.token !== process.env.TOKEN) {
-		return {
-			redirect: {
-				destination: "/login",
-				permanent: false,
-			},
-		};
-	}
-	return {
-		props: {
-			admin: "Admin",
-		},
-	};
 };
 export default Admin;

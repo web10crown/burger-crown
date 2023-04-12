@@ -1,12 +1,13 @@
-import styles from "@/styles/pages/Login.module.css";
+import styles from "@/styles/pages/Register.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import axios from "axios";
 import { publicRequest } from "../request";
+import axios from "axios";
 import { useRouter } from "next/router";
 
-const Login = () => {
+const Register = () => {
+	const [name, setName] = useState("");
 	const [phone, setPhone] = useState("");
 	const [pass, setPass] = useState("");
 	const router = useRouter();
@@ -14,21 +15,22 @@ const Login = () => {
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		const data = {
+			name,
 			phone,
 			pass,
 		};
+
 		try {
 			const res = await axios.post(
-				`${publicRequest}/api/auth/login`,
+				`${publicRequest}/api/auth/register/`,
 				data
 			);
-			if (res.status === 200) {
-				alert(`welcome ${res.data.name}`);
-				router.push("/");
-			}
+			console.log(res.data);
+			alert("registered successfully login here ");
+			router.push("/login");
 		} catch (err) {
-			alert(`please fill right details ${err.response.data}`);
 			console.log(err);
+			alert("please use diffrent number or login");
 		}
 	};
 	return (
@@ -50,8 +52,14 @@ const Login = () => {
 					</div>
 					<div className={styles.center}>
 						<form onSubmit={submitHandler}>
-							<h2>Sign In</h2>
-
+							<h2>Create Account</h2>
+							<b>Your name</b>
+							<input
+								type="text"
+								placeholder="Ener your name"
+								required
+								onChange={(e) => setName(e.target.value)}
+							/>
 							<b>Mobile number</b>
 							<div className={styles.mobile}>
 								<select name="IN +91">
@@ -70,31 +78,38 @@ const Login = () => {
 							<input
 								type="password"
 								placeholder="At least 6 characters"
-								required
 								minLength="6"
+								required
 								onChange={(e) => setPass(e.target.value)}
 							/>
-
+							<span>
+								! Passwords must be at least 6 characters.
+							</span>
+							<p>
+								By enrolling your mobile phone number, you
+								consent to receive automated security
+								notifications via text message from Amazon.
+								Message and data rates may apply.
+							</p>
 							<button>Continue</button>
 							<div className={styles.terms}>
 								<p>
-									By continuing, you agree to Amazon's
-									Conditions of Use and Privacy Notice.
+									Already have an account?
+									<Link
+										href="/login"
+										style={{ textDecoration: "none" }}
+									>
+										{" "}
+										signIn
+									</Link>
+								</p>
+								<p>
+									By creating an account or logging in, you
+									agree to Amazon’s Conditions of Use and
+									Privacy Policy.
 								</p>
 							</div>
 						</form>
-					</div>
-					<div className={styles.bottom}>
-						<p>New to Amazon?</p>
-
-						<Link
-							href="register"
-							style={{ color: "black", textDecoration: "none" }}
-						>
-							<div className={styles.btn}>
-								Create your Amazon account
-							</div>
-						</Link>
 					</div>
 				</div>
 			</div>
@@ -102,4 +117,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;

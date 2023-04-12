@@ -1,18 +1,19 @@
-import dbconnect from "../../../util/mongo";
-import Product from "../../../models/Product";
-const handler = async (req, res) => {
+import dbConnect from "../../../util/dbConnect";
+import products from "../../../models/products";
+
+export default async function handler(req, res) {
+	await dbConnect();
 	const {
 		method,
 		query: { id },
 	} = req;
-	await dbconnect();
+
 	if (method === "GET") {
 		try {
-			const products = await Product.findById(id);
-			res.status(200).json(products);
+			const data = await products.findById(id);
+			res.status(200).json(data);
 		} catch (err) {
-			res.status(500).json(err);
+			console.log(err);
 		}
 	}
-};
-export default handler;
+}
