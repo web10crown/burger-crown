@@ -18,13 +18,15 @@
 	box-shadow: 0 2px 4px 0 rgb(0 0 0 / 6%);
 	flex-direction: column;
 	width: 320px;
-	min-height: 400px;
 	border-radius: 5px;
 	margin: 20px auto;
 }
 .imageContainer {
-	flex: 1;
 	position: relative;
+	height: 170px;
+}
+.imageContainer img{
+	object-fit: cover;
 }
 .details {
 	flex: 1;
@@ -35,11 +37,11 @@
 }
 .details h2 {
 	font-weight: 100;
-	font-size: 25px;
+	font-size: 15px;
 }
 .details p {
 	font-family: sans-serif;
-	font-size: 20px;
+	font-size: 13px;
 	color: gray;
 	margin: 10px 0;
 }
@@ -65,13 +67,34 @@
 	.card {
 		width: 270px;
 	}
+	.imageContainer{
+		height: 140px;;
+	}
+	.details{
+		padding: 10px;
+	}
 }
-@media only screen and (max-width: 450px) {
-	.card {
-		width: 90vw;
-		min-height: 350px;
+@media only screen and (max-width:600px){
+	.card{
+		width:45vw;
+	}
+	.imageContainer{
+		height: 120px;;
+	}
+	.details{
+		padding: 7px;
+	}
+	.details h2{
+		font-size: 12px;
 	}
 	.details p {
-		font-size: 16px;
+		font-size: 10px;
+	}
+	.amountContainer h3{
+		font-size: 12px;
+	}
+	.button{
+		font-size: 9px;
+		padding: 3px 10px;
 	}
 }
