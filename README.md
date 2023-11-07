@@ -45,7 +45,6 @@ The Burger Crown project offers a user-friendly burger-themed website inspired b
 Before getting started, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/)
-- Any other specific dependencies or tools used in your project.
 
 ## **Installation and Usage**
 
@@ -54,15 +53,15 @@ Before getting started, ensure you have the following installed:
    ```bash
    git clone https://github.com/web10crown/burger-crown.git
 
--**Change your working directory to the project folder :**
+- **Change your working directory to the project folder :**
 cd burger-crown
 
--**Install project dependencies :**
+- **Install project dependencies :**
 npm install
 
--**Set up any necessary environment variables.**
+- **Set up any necessary environment variables.**
 
--**Start the development server :**
+- **Start the development server :**
 npm run dev
 
 ## Usage
