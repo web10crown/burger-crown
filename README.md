@@ -46,34 +46,46 @@ Before getting started, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/)
 
-## **Installation and Usage**
+Certainly, here are the "Installation" and "Usage" sections in code-like structure for your README file, making it easy for copy-pasting:
 
-- **Clone the repository:**
+
+## **Installation**
+
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/web10crown/burger-crown.git
+   ```
 
-- **Change your working directory to the project folder :**
-cd burger-crown
+2. Change your working directory to the project folder:
 
-- **Install project dependencies :**
-npm install
+   ```bash
+   cd burger-crown
+   ```
 
-- **Set up any necessary environment variables.**
+3. Install project dependencies:
 
-- **Start the development server :**
-npm run dev
+   ```bash
+   npm install
+   ```
 
-## Usage
+4. Set up any necessary environment variables.
 
-- Open the website in your web browser.
-- Explore the catalog of food items.
-- Add items to your cart.
-- Proceed to checkout to complete your order.
-- Admins can log in to access the admin panel for product management.
-## Folder Structure
-- pages: Contains the Next.js pages and routes.
-- components: Reusable React components used throughout the site.
-- redux: Redux-related files for global state management.
-- api: Server-side code for product management (admin access).
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+Your Burger Crown website should now be up and running, and users can start enjoying your Burger King-inspired food items.
+
+## **Usage**
+
+1. Open the website in your web browser.
+2. Explore the catalog of food items.
+3. Add items to your cart.
+4. Proceed to checkout to complete your order.
+5. Admins can log in to access the admin panel for product management.
+```
+
    
