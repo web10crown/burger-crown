@@ -49,20 +49,20 @@ Before getting started, ensure you have the following installed:
 
 ## **Installation and Usage**
 
-1. Clone the repository:
+- **Clone the repository:**
 
    ```bash
    git clone https://github.com/web10crown/burger-crown.git
 
-2. Change your working directory to the project folder
+-**Change your working directory to the project folder :**
 cd burger-crown
 
-3. Install project dependencies
+-**Install project dependencies :**
 npm install
 
-4. Set up any necessary environment variables.
+-**Set up any necessary environment variables.**
 
-5. Start the development server
+-**Start the development server :**
 npm run dev
 
 ## Usage
