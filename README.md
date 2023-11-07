@@ -48,7 +48,7 @@ Before getting started, ensure you have the following installed:
 
 Certainly, here are the "Installation" and "Usage" sections in code-like structure for your README file, making it easy for copy-pasting:
 
-
+```
 ## **Installation**
 
 1. Clone the repository:
