@@ -46,9 +46,7 @@ Before getting started, ensure you have the following installed:
 
 - [Node.js](https://nodejs.org/)
 
-Certainly, here are the "Installation" and "Usage" sections in code-like structure for your README file, making it easy for copy-pasting:
 
-```
 ## **Installation**
 
 1. Clone the repository:
@@ -86,6 +84,6 @@ Your Burger Crown website should now be up and running, and users can start enjo
 3. Add items to your cart.
 4. Proceed to checkout to complete your order.
 5. Admins can log in to access the admin panel for product management.
-```
+
 
    
